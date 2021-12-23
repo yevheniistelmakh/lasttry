@@ -13,6 +13,7 @@ pipeline {
         }
          stage('Build') {
             steps {
+	    	 sh 'docker -v'
 	         sh 'docker build -t yevhenii1991/wordpress'
 		}
 	   
