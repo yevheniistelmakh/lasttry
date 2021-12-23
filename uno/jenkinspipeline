@@ -5,12 +5,6 @@ pipeline {
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
          stage('Build') {
             steps { 
 	         sh 'docker build -t yevhenii1991/wordpress'
@@ -27,5 +21,4 @@ pipeline {
 		sh 'docker push yevhenii1991/wordpress:latest'
 		}
 	      }
-    }
 }
