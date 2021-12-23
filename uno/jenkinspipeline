@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'tehranian/dind-jenkins-slave:latest' }
+        docker { image 'benhall/dind-jenkins-agent:latest' }
     }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
