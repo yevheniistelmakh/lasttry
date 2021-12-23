@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'docker pull atlassian/pipelines-docker-daemon:v20-stable' }
+        docker { image 'docker pull tehranian/dind-jenkins-slave:latest' }
     }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
