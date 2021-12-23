@@ -26,11 +26,6 @@ pipeline {
 	    steps {
 		sh 'docker push yevhenii1991/wordpress:latest'
 		}
-	      }
-	post {
-	  always {
-		sh 'docker logout'
-		}
-	}
+	   }
     }
 }
