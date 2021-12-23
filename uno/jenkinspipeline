@@ -1,10 +1,16 @@
 pipeline {
     agent {
-        docker { image 'benhall/dind-jenkins-agent:latest' }
+        docker { image 'node:16.13.1-alpine' }
     }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
          stage('Build') {
             steps { 
 	         sh 'docker build -t yevhenii1991/wordpress'
@@ -20,6 +26,6 @@ pipeline {
 	    steps {
 		sh 'docker push yevhenii1991/wordpress:latest'
 		}
-	      }
-}
+	    }
+    }
 }
