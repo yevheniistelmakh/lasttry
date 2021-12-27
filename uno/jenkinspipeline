@@ -5,6 +5,9 @@ pipeline {
           image 'yevhenii1991/myjenkins-slave:latest' 
         }
     }
+    environment {
+      DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
+    }
   stages {
     stage("update jenkins job"){
       steps {
@@ -14,4 +17,19 @@ pipeline {
       }
     }
   }
+  stage('Build') {
+            steps { 
+	         sh 'docker build -t yevhenii1991/wordpress'
+		}
+	 }
+   stage('login') {
+     steps {
+		  sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+    		  }
+		}
+	  stage('Push') {
+	    steps {
+		sh 'docker push yevhenii1991/wordpress:latest'
+		}
+         }
 }
