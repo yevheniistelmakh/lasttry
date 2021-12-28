@@ -2,7 +2,7 @@
 pipeline {
     agent {
         docker { 
-          image 'yevhenii1991/myjenkins-slave:latest' 
+          image 'yevhenii1991/jenkins-slave-dind:latest' 
         }
     }
     environment {
