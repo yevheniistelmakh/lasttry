@@ -15,6 +15,12 @@ pipeline {
 	   sh 'docker images'
 }
 	 }
+    stage('Delete workspace before build starts') {
+            steps {
+                echo 'Deleting workspace'
+                deleteDir()
+            }
+        }
     stage('1234') {
          steps { 
 	   sh 'rm -R lasttry/uno/' 
