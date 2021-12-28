@@ -8,14 +8,6 @@ pipeline {
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
-  stages {
-    stage("update jenkins job"){
-      steps {
-        script {
-          echo "Test-00001"
-        }
-      }
-    }
     stage('Build') {
          steps { 
            sh 'docker ps -a'
