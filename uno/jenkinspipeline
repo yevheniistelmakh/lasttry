@@ -36,5 +36,10 @@ pipeline {
 	   sh ''
 		}
 	     }
+	     stage('Push') {
+	    steps {
+		sh 'docker push yevhenii1991/wordpress:latest'
+		}
+         }
   }
 }
