@@ -17,9 +17,9 @@ pipeline {
       }
     }
   }
-  stage('Build') {
-            steps { 
-	         sh 'docker ps -a'
+    stage('Build') {
+         steps { 
+           sh 'docker ps -a'
 		}
 	 }
   
