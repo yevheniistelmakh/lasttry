@@ -24,6 +24,8 @@ pipeline {
     stage('1234') {
          steps { 
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
+	   sh 'pwd'
+	   sh 'ls -al'
 	   sh 'docker build -t yevhenii1991/wordpress /lasttry/uno/.'
 		}
 	     }
