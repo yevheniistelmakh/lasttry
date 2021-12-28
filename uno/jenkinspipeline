@@ -26,7 +26,7 @@ pipeline {
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
 	   sh 'pwd'
 	   sh 'ls -al'
-	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/Dockerfile'
+	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
 	     }
   }
