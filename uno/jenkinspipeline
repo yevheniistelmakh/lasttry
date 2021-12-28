@@ -12,7 +12,7 @@ pipeline {
          steps { 
            sh 'docker ps -a'
 	   sh 'docker images'
-	   sh 'docker build -t yevhenii1991/wordpress'
+	   sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 		}
 	 }
      
