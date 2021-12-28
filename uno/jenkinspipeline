@@ -8,9 +8,11 @@ pipeline {
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
+    stages {
     stage('Build') {
          steps { 
            sh 'docker ps -a'
 		}
 	 }
   }
+}
