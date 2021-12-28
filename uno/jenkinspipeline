@@ -17,7 +17,7 @@ pipeline {
 	 }
     stage('1234') {
          steps { 
-	   sh 'docker build -t yevhenii1991/wordpress  /uno'
+	   sh 'docker build -t yevhenii1991/wordpress  https://github.com/yevheniistelmakh/lasttry/tree/main/uno'
 		}
 	 }
   }
