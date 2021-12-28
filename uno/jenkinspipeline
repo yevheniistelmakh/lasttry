@@ -29,5 +29,12 @@ pipeline {
 	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
 	     }
+	      stage('login') {
+         steps { 
+	   sh 'docker logout'
+	   sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+	   sh ''
+		}
+	     }
   }
 }
