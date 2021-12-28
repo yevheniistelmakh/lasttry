@@ -17,6 +17,7 @@ pipeline {
 	 }
     stage('1234') {
          steps { 
+	   sh 'rm -R lasttry/uno/' 
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
 	   sh 'cd lasttry/uno/ '
 	   sh 'docker build -t yevhenii1991/wordpress .'
