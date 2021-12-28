@@ -11,13 +11,11 @@ pipeline {
     stage('Build') {
          steps { 
            sh 'docker ps -a'
+	   sh 'docker images'
+	   sh 'docker build -t yevhenii1991/wordpress'
 		}
 	 }
-     stage('Build') {
-            steps { 
-	         sh 'docker build -t yevhenii1991/wordpress'
-		}
-	 }
+     
    
   }
 }
