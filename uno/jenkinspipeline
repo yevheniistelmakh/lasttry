@@ -16,13 +16,11 @@ pipeline {
                 deleteDir()
             }
         }
-	stages {
         stage("Env Variables") {
             steps {
                 sh "printenv"
             }
         }
-    }
      stage('Git clone') {
         steps { 
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
