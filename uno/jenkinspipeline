@@ -5,6 +5,8 @@ pipeline {
           image 'yevhenii1991/jenkins-slave-dind:latest' 
         }
     }
+    triggers { pollSCM ('* * * * *')
+    }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
