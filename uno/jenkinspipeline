@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
+      echo BUILD_NUMBER = "${env.BUILD_NUMBER}"
     }
     stages {
     
@@ -23,7 +24,6 @@ pipeline {
 	     }
      stage('Build') {
         steps {
-	   sh 'echo BUILD_NUMBER = "${env.BUILD_NUMBER}"'
 	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
            sh 'docker build -t yevhenii1991/wordpress:BUILD_NUMBER /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
@@ -37,7 +37,6 @@ pipeline {
 	     }
      stage('Push') {
 	    steps {
-	        sh 'echo BUILD_NUMBER = "${env.BUILD_NUMBER}"'
 		sh 'docker push yevhenii1991/wordpress:latest '
 		sh 'docker push  yevhenii1991/wordpress:BUILD_NUMBER'
 		sh 'docker images'
