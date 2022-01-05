@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
+      VERSION = "${BUILD_NUMBER}"
     }
     stages {
     
@@ -24,6 +25,7 @@ pipeline {
      stage('Build') {
         steps {
 	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
+           sh 'docker build -t yevhenii1991/wordpress:VERSION /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
 	     }
      stage('login') {
