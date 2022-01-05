@@ -37,7 +37,7 @@ pipeline {
 	     }
      stage('Push') {
 	    steps {
-		sh 'docker push yevhenii1991/wordpress:latest'
+		sh 'docker push yevhenii1991/wordpress:latest yevhenii1991/wordpress:VERSION'
 		}
          }
   }
