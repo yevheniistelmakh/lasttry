@@ -9,34 +9,31 @@ pipeline {
       DOCKERHUB_CREDENTIALS = credentials('jemkins-dockerhub')
     }
     stages {
-    stage('Build') {
-         steps { 
-           sh 'docker ps -a'
-	   sh 'docker images'
-}
-	 }
-    stage('Delete workspace before build starts') {
+    
+     stage('Delete workspace before build starts') {
             steps {
                 echo 'Deleting workspace'
                 deleteDir()
             }
         }
-    stage('1234') {
-         steps { 
+     stage('Git clone') {
+        steps { 
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
-	   sh 'pwd'
-	   sh 'ls -al'
+		}
+	     }
+     stage('Build') {
+        steps {
 	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
 	     }
-	      stage('login') {
+     stage('login') {
          steps { 
 	   sh 'docker logout'
 	   sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	   sh ''
 		}
 	     }
-	     stage('Push') {
+     stage('Push') {
 	    steps {
 		sh 'docker push yevhenii1991/wordpress:latest'
 		}
