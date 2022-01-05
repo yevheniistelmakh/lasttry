@@ -30,7 +30,7 @@ pipeline {
 	     }
      stage('Build') {
         steps {
-	   
+	   echo "BUILD_NUMBER =  ${env.BUILD_NUMBER}"
 	   sh 'docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/'
            sh 'docker build -t yevhenii1991/wordpress:BUILD_NUMBER /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
@@ -44,6 +44,7 @@ pipeline {
 	     }
      stage('Push') {
 	    steps {
+	        echo "BUILD_NUMBER =  ${env.BUILD_NUMBER}"
 		sh 'docker push yevhenii1991/wordpress:latest '
 		sh 'docker push  yevhenii1991/wordpress:BUILD_NUMBER'
 		sh 'docker images'
