@@ -5,7 +5,9 @@ pipeline {
           image 'yevhenii1991/jenkins-slave-dind:latest' 
         }
     }
-    
+    parameters {
+        string(name: 'VERSION', defaultValue: 'latest', description: ' latest version ')
+    }
     triggers { pollSCM ('* * * * *')
     }
     environment {
@@ -45,7 +47,7 @@ pipeline {
      stage('Push') {
 	    steps {
 		sh 'docker push  yevhenii1991/wordpress:$BUILD_NUMBER'
-		sh 'docker push yevhenii1991/wordpress:latest '
+		sh 'docker push yevhenii1991/wordpress:${params.VERSION} '
 		sh 'docker images'
 		}
          }
