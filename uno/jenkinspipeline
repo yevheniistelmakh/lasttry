@@ -30,10 +30,10 @@ pipeline {
         steps { 
 	   sh 'git clone https://github.com/yevheniistelmakh/lasttry.git'
 		}
-	     }
+	     } 
      stage('Build') {
         steps {
-	   sh 'docker build -t yevhenii1991/wordpress:$VERSION /var/jenkins_home/workspace/pip1/lasttry/uno/'
+	   sh 'docker build -t yevhenii1991/wordpress:${params.VERSION} /var/jenkins_home/workspace/pip1/lasttry/uno/'
            sh 'docker build -t yevhenii1991/wordpress:$BUILD_NUMBER /var/jenkins_home/workspace/pip1/lasttry/uno/'
 		}
 	     }
@@ -47,7 +47,7 @@ pipeline {
      stage('Push') {
 	    steps {
 		sh 'docker push  yevhenii1991/wordpress:$BUILD_NUMBER'
-		sh 'docker push yevhenii1991/wordpress:$VERSION '
+		sh 'docker push yevhenii1991/wordpress:${params.VERSION} '
 		sh 'docker images'
 		}
          }
