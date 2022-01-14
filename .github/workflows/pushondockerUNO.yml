@@ -8,6 +8,6 @@ jobs:
       - name: my-step
         run: |
           pwd
-          cd /home/digtal_ocean && docker-compose restart
+          cd /home/digtal_ocean 
       - name: docker ps
         run: docker-compose version
