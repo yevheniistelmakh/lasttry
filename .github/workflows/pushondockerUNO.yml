@@ -6,6 +6,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
-        run: echo "Hello World!"
+        run: |
+          echo "Hello World!"
+          cd /home/digtal_ocean
+          docker-compose restart
       - name: docker ps
         run: docker-compose version
