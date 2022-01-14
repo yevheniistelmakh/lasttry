@@ -6,9 +6,9 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: my-step
+        working-directory: /home/digtal_ocean
         run: |
           pwd
-          cd /home/digtal_ocean 
           docker-compos restart 
       - name: docker ps
         run: docker-compose version
