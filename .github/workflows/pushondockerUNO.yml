@@ -3,7 +3,9 @@ name: hello-world
 on: push
 jobs:
   my-job:
-    runs-on: yevhenii1991/jenkins-slave-dind-latest
+    runs-on: ubuntu-latest
     steps:
       - name: my-step
         run: echo "Hello World!"
+      - name: docker ps
+        run: docker-compose version
