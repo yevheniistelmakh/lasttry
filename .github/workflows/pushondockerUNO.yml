@@ -9,5 +9,6 @@ jobs:
         run: |
           pwd
           cd /home/digtal_ocean 
+          pwd
       - name: docker ps
-        run: docker-compose version
+        run: docker-compose restart
