@@ -10,5 +10,5 @@ jobs:
         run: |
           pwd
           docker-compos up 
-      - name: docker ps
+      - name: docker_PS
         run: docker-compose version
