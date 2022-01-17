@@ -9,6 +9,7 @@ jobs:
         working-directory: /home/digtal_ocean
         run: |
           export IMAGE_VERSION=90
+          pwd
           echo $IMAGE_VERSION
           docker-compose pull wordpress:$IMAGE_VERSION
           docker-compose up -p
