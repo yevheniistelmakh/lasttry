@@ -12,5 +12,5 @@ jobs:
           pwd
           echo $IMAGE_VERSION
           docker-compose pull wordpress
-          docker-compose up -p
+          docker-compose up -d
      
