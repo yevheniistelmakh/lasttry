@@ -13,7 +13,7 @@ pipeline {
 	  sh 'echo $ENV1'
           dir('/home/digtal_ocean') {
           sh "pwd"
-	  sh 'docker-compose restart'
+	  sh 'docker-compose version'
             }
         } 
  	}
