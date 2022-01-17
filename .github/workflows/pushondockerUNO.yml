@@ -13,5 +13,4 @@ jobs:
           echo $IMAGE_VERSION
           docker-compose pull wordpress
           docker-compose up -p
-      - name: docker_PS
-        run: docker-compose version
+     
