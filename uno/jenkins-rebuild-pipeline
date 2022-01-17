@@ -1,31 +1,28 @@
 
 pipeline {
-    agent {
+    agent { label 'slave1'
     }
     
     triggers { pollSCM ('* * * * *')
     }
    
     stages {
-    
-     stage('') {
-            steps {
-                echo 'Deleting workspace'
+      stage('variable value') {
+        steps {
+          sh 'export ENV1=latest'
+	  sh 'echo $ENV1'
                 
             }
         }
-        stage("Env Variables") {
-            steps {
-                sh "printenv"
+      stage("Env Variables") {
+        steps {
+          sh ""
             }
         }
-        stage('') {
+      stage('') {
         steps { 
-	         sh ''
+	  sh ''
 		}
 	     } 
-    
-     
-     
   }
 }
