@@ -9,6 +9,6 @@ jobs:
         working-directory: /home/digtal_ocean
         run: |
           pwd
-          docker-compos up 
+          docker-compose up 
       - name: docker_PS
         run: docker-compose version
