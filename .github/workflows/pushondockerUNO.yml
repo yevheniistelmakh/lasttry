@@ -8,7 +8,7 @@ jobs:
       - name: my-step
         working-directory: /home/digtal_ocean
         run: |
-          export IMAGE_VERSION=90
+          export IMAGE_VERSION=latest
           pwd
           echo $IMAGE_VERSION
           docker-compose pull wordpress
