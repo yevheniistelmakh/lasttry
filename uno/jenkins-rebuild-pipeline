@@ -2,9 +2,6 @@
 pipeline {
     agent { label 'slave1'
     }
-    
-    triggers { pollSCM ('* * * * *')
-    }
    
     stages {
       stage('variable value') {
