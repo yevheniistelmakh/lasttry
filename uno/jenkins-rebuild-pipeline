@@ -11,18 +11,10 @@ pipeline {
         steps {
           sh 'export ENV1=latest'
 	  sh 'echo $ENV1'
-                
+          dir('/home/digtal_ocean') {
+          sh "pwd"
+	  sh 'docker-compose restart'
             }
-        }
-      stage("Env Variables") {
-        steps {
-          sh ""
-            }
-        }
-      stage('') {
-        steps { 
-	  sh ''
-		}
-	     } 
+        } 
   }
 }
