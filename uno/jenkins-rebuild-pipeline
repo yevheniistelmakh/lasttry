@@ -13,7 +13,7 @@ pipeline {
 	  sh 'echo $IMAGE_VERSION'
 	  sh 'ls -al /home/digtal_ocean'
 	  sh 'cd /home/digtal_ocean && docker-compose down && docker-compose up -d'
-          dir("/home/digtal_ocean") {
+          dir("/home/digtal_ocean/") {
           //sh 'docker-compose down'
 	  //sh 'docker-compose up -d'
             sh 'echo test'
