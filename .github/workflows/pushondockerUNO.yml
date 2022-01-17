@@ -11,7 +11,7 @@ jobs:
           export IMAGE_VERSION=90
           pwd
           echo $IMAGE_VERSION
-          docker-compose pull wordpress:$IMAGE_VERSION
+          docker-compose pull wordpress
           docker-compose up -p
       - name: docker_PS
         run: docker-compose version
