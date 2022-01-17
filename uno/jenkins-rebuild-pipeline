@@ -11,7 +11,10 @@ pipeline {
         steps {
           sh 'export IMAGE_VERSION=latest'
 	  sh 'echo $IMAGE_VERSION'
-          
+          dir('/home/digtal_ocean') {
+          sh 'docker-compose down'
+	  sh 'docker-compose up -d'
+            }
         } 
  	}
   }
