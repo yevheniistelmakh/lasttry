@@ -16,7 +16,8 @@ pipeline {
           dir('/home/digtal_ocean') {
           //sh 'docker-compose down'
 	  //sh 'docker-compose up -d'
-            sh 'echo test'}
+            sh 'echo test'
+	    }
         } 
  	}
   }
