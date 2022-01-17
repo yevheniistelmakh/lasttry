@@ -8,9 +8,6 @@ jobs:
       - name: my-step
         working-directory: /home/digtal_ocean
         run: |
-          export IMAGE_VERSION=latest
-          pwd
-          echo $IMAGE_VERSION
           docker-compose stop
           docker-compose up -d
           pwd
