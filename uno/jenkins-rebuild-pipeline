@@ -9,11 +9,11 @@ pipeline {
     stages {
       stage('variable value') {
         steps {
-          sh 'export ENV1=latest'
+          sh 'export $IMAGE_VERSION='
 	  sh 'echo $ENV1'
           dir('/home/digtal_ocean') {
           sh "pwd"
-	  sh 'docker-compose version'
+	  
             }
         } 
  	}
