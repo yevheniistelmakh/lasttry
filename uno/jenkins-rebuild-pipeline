@@ -1,0 +1,31 @@
+
+pipeline {
+    agent {
+    }
+    
+    triggers { pollSCM ('* * * * *')
+    }
+   
+    stages {
+    
+     stage('') {
+            steps {
+                echo 'Deleting workspace'
+                
+            }
+        }
+        stage("Env Variables") {
+            steps {
+                sh "printenv"
+            }
+        }
+        stage('') {
+        steps { 
+	         sh ''
+		}
+	     } 
+    
+     
+     
+  }
+}
