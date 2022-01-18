@@ -3,8 +3,16 @@ name: hello-world
 on: push
 
 jobs:
+  build-image-4-wordpress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: rebuild-wordpress-image
+        run: |
+        
+  
   my-job:
     runs-on: self-hosted
+    needs: build-image-4-wordpress
     env:
       color: red
       region: central
