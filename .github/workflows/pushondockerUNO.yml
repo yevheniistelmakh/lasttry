@@ -8,15 +8,16 @@ jobs:
     env:
       color: red
       region: central
+      Number: build number ${{ github.sha }}
     steps:
       - name: my-step
         working-directory: /home/digtal_ocean
         run: |
           echo $color
+          echo $Number
           echo ${{ env.region }}
           export IMAGE_VERSION=90
           echo $IMAGE_VERSION
-          docker-compose pull 
-          docker-compose up -d
+          
           pwd
      
