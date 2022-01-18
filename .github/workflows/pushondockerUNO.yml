@@ -18,6 +18,7 @@ jobs:
           echo ${{ env.region }}
           export IMAGE_VERSION=90
           echo $IMAGE_VERSION
-          
+          docker-compose pull wordpress
+          docker-compose up -d
           pwd
      
