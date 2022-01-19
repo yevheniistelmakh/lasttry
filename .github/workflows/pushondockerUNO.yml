@@ -6,9 +6,21 @@ jobs:
   build-image-4-wordpress:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: rebuild-wordpress-image
         run: |
-        
+          git clone https://github.com/yevheniistelmakh/lasttry.git
+          docker build -t yevhenii1991/wordpress /var/jenkins_home/workspace/pip1/lasttry/uno/
+          docker build -t yevhenii1991/wordpress:${{ github.sha }} /var/jenkins_home/workspace/pip1/lasttry/uno/
+      - name: login-push
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+        run: |
+          docker logout
+          docker login -u 
+          docker push  yevhenii1991/wordpress:${{ github.sha }}
+          docker push yevhenii1991/wordpress:latest
   
   my-job:
     runs-on: self-hosted
