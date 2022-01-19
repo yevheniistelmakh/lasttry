@@ -6,7 +6,6 @@ jobs:
   build-image-4-wordpress:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - name: rebuild-wordpress-image
         run: |
           git clone https://github.com/yevheniistelmakh/lasttry.git
