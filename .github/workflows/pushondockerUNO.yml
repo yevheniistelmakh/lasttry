@@ -28,7 +28,7 @@ jobs:
   
   my-job:
     runs-on: self-hosted
-    needs: build-image-4-wordpress
+    needs: docker
     env:
       color: red
       region: central
