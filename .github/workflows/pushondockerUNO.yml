@@ -6,12 +6,16 @@ jobs:
   build-image-4-wordpress:
     runs-on: ubuntu-latest
     steps:
-      - name: rebuild-wordpress-image
+      - name: clone
         run: |
           git clone https://github.com/yevheniistelmakh/lasttry.git
+      - name: rebuild-wordpress-image
+        run: |
+          working-directory: /lasttry/uno
           ls -la
-          cd /lasttry/uno/ && docker build -t yevhenii1991/wordpress
-          cd /lasttry/uno/ && docker build -t yevhenii1991/wordpress:${{ github.sha }} /lasttry/uno/
+          pwd
+          docker build -t yevhenii1991/wordpress /.
+          docker build -t yevhenii1991/wordpress:${{ github.sha }} /.
       - name: login-push
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
