@@ -9,6 +9,7 @@ jobs:
       - name: rebuild-wordpress-image
         run: |
           git clone https://github.com/yevheniistelmakh/lasttry.git
+          ls -la
           docker build -t yevhenii1991/wordpress /lasttry/uno/
           docker build -t yevhenii1991/wordpress:${{ github.sha }} /lasttry/uno/
       - name: login-push
