@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: clone
         run: |
-          git clone https://github.com/yevheniistelmakh/lasttry.git
+          git clone https://github.com/yevheniistelmakh/lasttry.git && cd /lasttry/uno/ && docker build -t yevhenii1991/wordpress:${{ github.sha }} /.
       - name: rebuild-wordpress-image
         run: |
           ls -la
