@@ -10,8 +10,8 @@ jobs:
         run: |
           git clone https://github.com/yevheniistelmakh/lasttry.git
           ls -la
-          docker build -t yevhenii1991/wordpress /lasttry/uno/
-          docker build -t yevhenii1991/wordpress:${{ github.sha }} /lasttry/uno/
+          cd /lasttry/uno/ && docker build -t yevhenii1991/wordpress
+          cd /lasttry/uno/ && docker build -t yevhenii1991/wordpress:${{ github.sha }} /lasttry/uno/
       - name: login-push
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
