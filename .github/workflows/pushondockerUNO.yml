@@ -11,7 +11,9 @@ jobs:
           git clone https://github.com/yevheniistelmakh/lasttry.git
       - name: rebuild-wordpress-image
         run: |
-          working-directory: /lasttry/uno
+          ls -la
+          pwd
+        working-directory: /lasttry/uno
           ls -la
           pwd
           docker build -t yevhenii1991/wordpress /.
