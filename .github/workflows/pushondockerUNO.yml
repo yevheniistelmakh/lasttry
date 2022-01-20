@@ -1,31 +1,28 @@
 # this is pipeline for test
 name: hello-world
-on:
-  push 
-  jobs:
+on: push 
+  jobs :
     docker:
-      runs-on: ubuntu-latest
+  runs-on: ubuntu-latest
      
     
-    steps:
-      -
-        name: Login to DockerHub
+steps:
+      - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-      -
-        name: Build and push
+      - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
           
-  my-job: 
-    runs-on: self-hosted
+my-job: 
+  runs-on: self-hosted
     needs: docker
-    env:
+      env:
       color: red
       region: central
       Number: build number ${{ github.sha }}
