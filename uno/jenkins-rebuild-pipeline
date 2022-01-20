@@ -2,11 +2,12 @@
 pipeline {
     agent { label 'slave1'
     }
-   
+    parameters {
+        string(name: 'IMAGE_VERSION', defaultValue: 'latest', description: ' I say hello to?')
+        }
     stages {
       stage('variable value') {
         steps {
-          sh 'export IMAGE_VERSION=latest'
 	  sh 'echo $IMAGE_VERSION'
 	  sh 'ls -al /home/digtal_ocean'
 	  sh 'cd /home/digtal_ocean && docker-compose down && docker-compose up -d'
