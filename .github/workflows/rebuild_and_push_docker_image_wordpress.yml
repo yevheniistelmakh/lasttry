@@ -19,17 +19,5 @@ jobs :
          push: true
          tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
         
-        - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-         push: true
-         tags: ${{ secrets.DOCKER_USER }}/wordpress:latest
+ 
   
