@@ -1,6 +1,6 @@
 # this is pipeline for test
 name: hello-world
-on: push 
+on: 
   workflow_dispatch:
     inputs:
       name:
