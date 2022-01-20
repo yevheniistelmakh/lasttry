@@ -1,29 +1,13 @@
 # this is pipeline for test
 name: hello-world
-on: 
-  workflow_dispatch:
-    inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
-      environment:
-        type: environment
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    
+on:
+  push 
+  jobs:
+    docker:
+      runs-on: ubuntu-latest
+     
     
     steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
       -
         name: Login to DockerHub
         uses: docker/login-action@v1 
@@ -37,8 +21,8 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
-  
-  my-job:
+          
+  my-job: 
     runs-on: self-hosted
     needs: docker
     env:
