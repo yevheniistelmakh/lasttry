@@ -1,12 +1,10 @@
 # this is pipeline for test
 name: hello-world
-on: push 
-  jobs :
-    docker:
-  runs-on: ubuntu-latest
-     
-    
-steps:
+on: push  
+jobs :
+  docker:
+    runs-on: ubuntu-latest
+    steps:
       - name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
@@ -16,13 +14,12 @@ steps:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          push: true
-          tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
-          
-my-job: 
-  runs-on: self-hosted
+         push: true
+         tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
+  my-job: 
+    runs-on: self-hosted
     needs: docker
-      env:
+    env:
       color: red
       region: central
       Number: build number ${{ github.sha }}
@@ -37,5 +34,4 @@ my-job:
           echo $IMAGE_VERSION
           docker-compose pull wordpress
           docker-compose up -d
-          pwd
-     
+           pwd
