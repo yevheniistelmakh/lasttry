@@ -1,39 +1,25 @@
-# this is pipeline for test
-name: hello-world
-on: push  
-jobs :
-  docker:
+name: test
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
+
+jobs:
+  greet:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-         push: true
-         tags: ${{ secrets.DOCKER_USER }}/wordpress:${{github.run_number}}
-  my-job: 
-    runs-on: self-hosted
-    needs: docker
-    env:
-      color: red
-      region: central
-      Number: build number ${{ github.sha }}
-    steps:
-      - name: my-step
-        working-directory: /home/digtal_ocean
-        run: |
-          echo $color
-          echo $Number
-          echo ${{ env.region }}
-          export IMAGE_VERSION=latest
-          echo $IMAGE_VERSION
-          docker-compose pull wordpress
-          docker-compose up -d
-           pwd
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
