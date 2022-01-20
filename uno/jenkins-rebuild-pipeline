@@ -3,7 +3,7 @@ pipeline {
     agent { label 'slave1'
     }
     parameters {
-        string(name: 'IMAGE_VERSION', defaultValue: 'latest', description: ' ')
+        string(name: 'IMAGE_VERSION', defaultValue: 'latest', description: ' enter image version ')
         }
     stages {
       stage('variable value') {
