@@ -1,4 +1,4 @@
-name: test
+name: deploy_docker_image_wordpress
 on:
   workflow_dispatch:
     inputs:
@@ -7,8 +7,18 @@ on:
 
 jobs:
   greet:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.image_version }} "
+      - name: my-step
+        working-directory: /home/digtal_ocean
+        run: |
+          echo $color
+          echo $Number
+          echo ${{ env.region }}
+          export IMAGE_VERSION=${{ github.event.inputs.image_version }}
+          echo $IMAGE_VERSION
+          docker-compose pull wordpress
+          docker-compose up -d
+      - name: echo
+        run: echo "${{ github.event.inputs.image_version }} "
